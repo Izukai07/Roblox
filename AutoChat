@@ -1,1 +1,16 @@
+# Setting
 
+local TN = "/Save" -- 
+local Delay = 30 -- chat tự động chat sau bao nhiêu giây
+
+
+# Con Cak 
+
+if _G.AutoChat then _G.AutoChat = false
+else _G.AutoChat = true
+end
+while _G.AutoChat do
+	local args = {[1] = TN,[2] = "All"}
+	game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	task.wait(tonumber(Delay))
+end
